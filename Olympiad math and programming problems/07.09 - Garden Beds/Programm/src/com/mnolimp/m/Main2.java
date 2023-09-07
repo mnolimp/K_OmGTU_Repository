@@ -24,6 +24,8 @@ public class Main2 {
         System.out.println("Number of garden beds n");
         n = scanner.nextInt();
 
-        System.out.println(2 * n * (p + k + l) + l * n * (n + 1));
+        s = 2 * n * (p + k + l) + l * n * (n - 1);
+
+        System.out.println(s);
     }
 }
