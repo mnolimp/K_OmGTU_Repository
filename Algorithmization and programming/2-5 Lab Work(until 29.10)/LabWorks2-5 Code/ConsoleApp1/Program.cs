@@ -1,6 +1,6 @@
-﻿secondSolution();
-
-void firstSolution()
+﻿
+Third_firstSolution();
+void FirstSolution()
 {
     double y, a, b, x1, x2; //y - результат вычислений; a, b, x1, x2 - подаваемые на вход значения переменных
 
@@ -27,7 +27,7 @@ void firstSolution()
     y = ((a * a) / ((x2 + 2) * Math.Pow(Math.Exp(1), -b * x2))) + Math.Log(a + b * x2);
     Console.WriteLine("y(" + x2 + ") = " + y);
 }
-void secondSolution()
+void SecondSolution()
 {
     double y = 0, x = 0, a, b, c;
 
@@ -65,11 +65,32 @@ void secondSolution()
 
     Console.WriteLine("y(" + x + ") = " + y);
 }
-void thirdSolution()
+void Third_firstSolution()
+{
+    double x, n, mult = 1;
+
+    Console.WriteLine("Программа для вычисления значения формулы:");
+    Console.WriteLine(" n ");
+    Console.WriteLine(" П (x+i)/i");
+    Console.WriteLine("i=2");
+    Console.WriteLine("Введите значение x");
+    x = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите значение n");
+    n = Convert.ToInt32(Console.ReadLine());
+
+    for (int i = 2; i <= n; i++)
+    {
+        mult *= (x + i) / i;
+    }
+
+    Console.WriteLine("Значение формулы для x = " + x + " и n = " + n + " равняется " + mult);
+}
+
+void Third_secondSolution()
 {
 
 }
-void fourthSoultion()
+void FourthSoultion()
 {
 
 }
