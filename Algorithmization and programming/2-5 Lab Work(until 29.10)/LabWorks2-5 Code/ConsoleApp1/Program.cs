@@ -1,5 +1,20 @@
-﻿
-Third_firstSolution();
+﻿int a, b, n, lenght;
+double x = -4;
+
+Console.WriteLine("Программа для вычисления значений функций (x^3)(e^2x) и (e^x)(sin x) в n равномерно распределенных в диапазоне а≤x≤b точках");
+Console.WriteLine("Введите a");
+a = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите b");
+b = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите n");
+n = Convert.ToInt32(Console.ReadLine());
+
+lenght = b - a + 1;
+for (int i = 0; i < n; i++)
+{
+    Console.WriteLine("");
+}
+
 void FirstSolution()
 {
     double y, a, b, x1, x2; //y - результат вычислений; a, b, x1, x2 - подаваемые на вход значения переменных
