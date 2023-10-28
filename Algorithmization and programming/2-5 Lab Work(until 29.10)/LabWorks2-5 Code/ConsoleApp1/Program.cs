@@ -1,19 +1,5 @@
-﻿int a, b, n, lenght;
-double x = -4;
+﻿FourthSoultion();
 
-Console.WriteLine("Программа для вычисления значений функций (x^3)(e^2x) и (e^x)(sin x) в n равномерно распределенных в диапазоне а≤x≤b точках");
-Console.WriteLine("Введите a");
-a = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите b");
-b = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите n");
-n = Convert.ToInt32(Console.ReadLine());
-
-lenght = b - a + 1;
-for (int i = 0; i < n; i++)
-{
-    Console.WriteLine("");
-}
 
 void FirstSolution()
 {
@@ -103,9 +89,67 @@ void Third_firstSolution()
 
 void Third_secondSolution()
 {
+    double a, b, n, lenght;
+    double x = -4, result = 0;
 
+    Console.WriteLine("Программа для вычисления значений функций (x^3)(e^2x) и (e^x)(sin x) в n равномерно распределенных в диапазоне а<=x<=b точках");
+    Console.WriteLine("Введите a");
+    a = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите b");
+    b = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите n");
+    n = Convert.ToInt32(Console.ReadLine());
+
+    lenght = b - a;
+    Console.WriteLine("Результаты для (x^3)(e^2x)");
+    for (int i = 0; i < n; i++)
+    {
+        result = Math.Pow(x, 3) * Math.Pow(Math.E, 2 * x);
+        Console.WriteLine("x = " + x + ": " + result);
+        x += lenght / n;
+    }
+
+    x = -4;
+    Console.WriteLine("Результаты для (e^x)(sin x)");
+    for (int i = 0; i < n; i++)
+    {
+        result = Math.Pow(Math.E, x) * Math.Sin(x);
+        Console.WriteLine("x = " + x + ": " + result);
+        x += lenght / n;
+    }
 }
 void FourthSoultion()
 {
+    double x, a, z = 0, step = 0;
 
+    Console.WriteLine("Программа для табуляции функций в зависимости от значений переменных x и a");
+    Console.WriteLine("    |    a(e^(x+2a)+e^(-(x-3a))),    если  0,1 <= x < 0,5");
+    Console.WriteLine("z = |    sin x,                      если  x = 0,5, a = 2; 2,1");
+    Console.WriteLine("    |    a + a cos(x+3a),            если  0,5 < x <= 1,5, шаг dx=a/10");
+
+    Console.WriteLine("Введите a");
+    a = Convert.ToDouble(Console.ReadLine());
+    Console.WriteLine("Введите x");
+    x = Convert.ToDouble(Console.ReadLine());
+
+    if ((0.1 <= x) & (x < 0.5))
+    {
+        z = a * (Math.Pow(Math.E, x + 2 * a) + Math.Pow(Math.E, -(x - 3 * a)));
+        Console.WriteLine("При x = " + x + " z = a(e^(x+2a)+e^(-(x-3a))) = " + z);
+    }
+    else if ((x == 0.5) & ((a == 2) | (a == 2.1)))
+    {
+        z = Math.Sin(x);
+        Console.WriteLine("При x = " + x + " z = sin x = " + z);
+    }
+    else if ((0.5 < x) & (x <= 1.5))
+    {
+        step = a / 10;
+        for (double i = x; i <= 1.5; i = i + step)
+        {
+            x = Math.Round(i, 5);
+            z = Math.Round(a + a * Math.Cos(x + 3 * a), 8);
+            Console.WriteLine("При x = " + x + " z = a + a cos(x+3a) = " + z);
+        }
+    }
 }
