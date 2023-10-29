@@ -134,8 +134,13 @@ void FourthSoultion()
 
     if ((0.1 <= x) & (x < 0.5))
     {
-        z = a * (Math.Pow(Math.E, x + 2 * a) + Math.Pow(Math.E, -(x - 3 * a)));
-        Console.WriteLine("При x = " + x + " z = a(e^(x+2a)+e^(-(x-3a))) = " + z);
+        step = a / 10;
+        for (double i = x; i < 0.5; i = i + step)
+        {
+            x = Math.Round(i, 5);
+            z = a * (Math.Pow(Math.E, x + 2 * a) + Math.Pow(Math.E, -(x - 3 * a)));
+            Console.WriteLine("При x = " + x + " z = a(e^(x+2a)+e^(-(x-3a))) = " + z);
+        }
     }
     else if ((x == 0.5) & ((a == 2) | (a == 2.1)))
     {
