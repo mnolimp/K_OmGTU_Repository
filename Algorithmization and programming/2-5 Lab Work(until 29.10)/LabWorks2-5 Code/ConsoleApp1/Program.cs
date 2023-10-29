@@ -1,6 +1,3 @@
-﻿FourthSoultion();
-
-
 void FirstSolution()
 {
     double y, a, b, x1, x2; //y - результат вычислений; a, b, x1, x2 - подаваемые на вход значения переменных
