@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
     static Scanner scanner;
     public static void main(String[] args) {
-        DecimalFormat decimalFormat = new DecimalFormat("#.##10-10-5-10-10-10-12.23-20.12");
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
         scanner = new Scanner(System.in);
         int N, x1, y1, z1, x2, y2, z2;
         double c1, c2, package_price1, package_price2, package_volume1, package_volume2, milk_price;
@@ -20,7 +20,7 @@ public class Main {
         for(int i = 0; i < N; i++){
 
             System.out.println("Введите размеры упаковок и стоимость для фирмы " + (i+1) + " в формате <<x1 y1 z1 x2 y2 z2 c1 c2>>");
-            input = scanner.next();
+            input = scanner.nextLine();
 
             split_input = input.split(" ");
             x1 = Integer.parseInt(split_input[0]);
