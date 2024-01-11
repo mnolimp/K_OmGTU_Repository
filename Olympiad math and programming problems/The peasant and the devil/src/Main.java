@@ -3,25 +3,20 @@ import java.util.Scanner;
 public class Main {
     static Scanner scanner;
     public static void main(String[] args) {
-        int counter = 0, maxN, n, t;
+        int total = 0, maxN, res;
         scanner = new Scanner(System.in);
-
-        System.out.println("Введите максимальное количество монет");
         maxN = scanner.nextInt();
-        for(int i = 0; i <= maxN; i++){
-            n = i;
-            for(int k = 1; k <= i * 2; k++){
-                if(k >= i){
-                    n = i;
-                    while(n > 0){
-                        t = n;
-                        n = n * 2 - k;
-                        if(n >= t) break;
-                    }
-                    if(n == 0) counter++;
+        for (int j = 1; j <= maxN; j++)
+        {
+            for (int i = 2; i <= 17; i++)
+            {
+                if (j % (int)Math.pow(2, i) - 1 == 0)
+                {
+                    total += 1;
                 }
             }
         }
-        System.out.println(counter);
+        res = maxN + total;
+        System.out.println(res);
     }
 }
