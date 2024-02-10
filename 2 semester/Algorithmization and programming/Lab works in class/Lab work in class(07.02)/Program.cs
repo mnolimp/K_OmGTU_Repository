@@ -3,6 +3,7 @@
     internal class Program
     {
         static List<Auditorium> auditoriums;
+        static bool auditoriumsInit = false;
         static void Main(string[] args)
         {
             Menu menu = new Menu();
@@ -82,7 +83,18 @@
                             }
                             break;
                         case 7:
-                            Auditorium.findAuditoriumbyFlat(0);
+                            int flat;
+                            Console.WriteLine("Введите этаж");
+                            flat = Convert.ToInt32(Console.ReadLine());
+                            try
+                            {
+                                Auditorium.findAuditoriumbyFlat(flat);
+                            }
+                            catch (System.FormatException)
+                            {
+                                Console.WriteLine("Данные введены некорректно. Операция прервана. Нажмите любую клавишу, чтобы вернуться в меню");
+                                Console.ReadKey();
+                            }
                             break;
                         case 8:
                             Auditorium.getAllInfoAllAuditoriums();
@@ -113,6 +125,7 @@
             public static void createBD()
             {
                 auditoriums = new List<Auditorium>();
+                auditoriumsInit = true;
                 Console.Clear();
                 Console.WriteLine("Новая база данных успешно создана \nНажмите любую клавишу, чтобы вернуться в меню");
                 Console.ReadKey();
@@ -121,17 +134,41 @@
 
             public static void addToDB()
             {
-                String number, strProjector;
-                int places;
-                bool projector;
-                int PCs;
-                try
+                if (auditoriumsInit)
                 {
+
+                    String number, strProjector;
+                    int places;
+                    bool projector;
+                    int PCs;
+
                     Console.WriteLine("Введите номер аудитории в формате <<этаж-номер>>");
                     number = Console.ReadLine();
 
-                    Console.WriteLine("Введите количество посадочных мест");
-                    places = Convert.ToInt32(Console.ReadLine());
+                    if (auditoriums != null)
+                    {
+                        for (int i = 0; i < auditoriums.Count; i++)
+                        {
+                            if (auditoriums[i].number == number)
+                            {
+                                Console.WriteLine("Данная аудитория уже существует. Для редактирования информации об этой данной аудитории воспользуйтесь соответствующей функцией в меню\nНажмите любую клавишу, чтобы вернуться в меню");
+                                Console.ReadKey();
+                                Console.Clear();
+                                return;
+                            }
+                        }
+                    }
+                    try
+                    {
+                        Console.WriteLine("Введите количество посадочных мест");
+                        places = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch (System.FormatException)
+                    {
+                        Console.WriteLine("Данные введены некорректно. Добавление аудитории в базу данных прервано. Нажмите любую клавишу, чтобы вернуться в меню");
+                        Console.ReadKey();
+                        return;
+                    }
 
                     Console.WriteLine("Подтвердите наличие/отсуствие проектора в аудитории(Да/Нет)");
                     strProjector = Console.ReadLine();
@@ -143,6 +180,7 @@
                         case "ДА":
                         case "дА":
                             projector = true;
+                            Console.WriteLine("Введенная строка воспринята как подтверждение наличия");
                             break;
                         case "нет":
                         case "Нет":
@@ -153,32 +191,25 @@
                         case "НеТ":
                         case "НЕт":
                             projector = false;
+                            Console.WriteLine("Введенная строка воспринята как подтверждение отсутствия");
                             break;
                         default:
                             projector = false;
+                            Console.WriteLine("Введенная строка не распознана и воспринята как подтверждение отсутствия");
                             break;
                     }
 
                     Console.WriteLine("Введите количество компьютеров в аудитории(введите 0 если их нет)");
                     PCs = Convert.ToInt32(Console.ReadLine());
-                    if (auditoriums != null)
-                    {
-                        auditoriums.Add(new Auditorium(number, places, projector, PCs));
-                        Console.Clear();
-                        Console.WriteLine("Аудитория успешно добавлена в базу данных \nНажмите любую клавишу, чтобы вернуться в меню");
-                        Console.ReadKey();
-                        Console.Clear();
-
-                    }
-                    else
-                    {
-                        Console.WriteLine("База данных не инициализированна. Добавление аудитории в базу данных прервано. Нажмите любую клавишу, чтобы вернуться в меню");
-                        Console.ReadKey();
-                    }
-                } catch (System.FormatException)
+                    auditoriums.Add(new Auditorium(number, places, projector, PCs));
+                    Console.Clear();
+                    Console.WriteLine("Аудитория успешно добавлена в базу данных \nНажмите любую клавишу, чтобы вернуться в меню");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+                else
                 {
-
-                    Console.WriteLine("Данные введены некорректно. Добавление аудитории в базу данных прервано. Нажмите любую клавишу, чтобы вернуться в меню");
+                    Console.WriteLine("База данных не инициализированна. Добавление аудитории в базу данных прервано. Нажмите любую клавишу, чтобы вернуться в меню");
                     Console.ReadKey();
                 }
             }
@@ -349,9 +380,40 @@
 
             public static void findAuditoriumbyFlat(int flat)
             {
-                Console.WriteLine("Нажмите любую клавишу, чтобы вернуться в меню");
-                Console.ReadKey();
-                Console.Clear();
+                String currentAuditorium, currentFlat;
+                int comparingFlat = -1;
+                bool isAuditoriumFound = false;
+                for(int i = 0; i < auditoriums.Count; i++)
+                {
+                    currentFlat = "";
+                    currentAuditorium = auditoriums[i].number;
+                    for(int j = 0; j < currentAuditorium.Length; j++)
+                    {
+                        if (Char.IsDigit(currentAuditorium[j]))
+                        {
+                            currentFlat += currentAuditorium[j];
+                        } else
+                        {
+                            comparingFlat = Convert.ToInt32(currentFlat);
+                            break;
+                        }
+                    }
+                    if(comparingFlat == flat)
+                    {
+                        Console.WriteLine(Auditorium.getAllInfo(auditoriums[i]));
+                        isAuditoriumFound = true;
+                    }
+                }
+                if (!isAuditoriumFound)
+                {
+                    Menu.showIfDidntFind();
+                }
+                else
+                {
+                    Console.WriteLine("Нажмите любую клавишу, чтобы вернуться в меню");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
             }
 
             public static void getAllInfoAllAuditoriums()
