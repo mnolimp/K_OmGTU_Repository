@@ -1,0 +1,14 @@
+C:\Users\Max\Documents\Visual Studio 2022\Projects\AlgorithmizationAndProgramming2102\AlgorithmizationAndProgramming2102\bin\Debug\net6.0\AlgorithmizationAndProgramming2102.exe
+C:\Users\Max\Documents\Visual Studio 2022\Projects\AlgorithmizationAndProgramming2102\AlgorithmizationAndProgramming2102\bin\Debug\net6.0\AlgorithmizationAndProgramming2102.deps.json
+C:\Users\Max\Documents\Visual Studio 2022\Projects\AlgorithmizationAndProgramming2102\AlgorithmizationAndProgramming2102\bin\Debug\net6.0\AlgorithmizationAndProgramming2102.runtimeconfig.json
+C:\Users\Max\Documents\Visual Studio 2022\Projects\AlgorithmizationAndProgramming2102\AlgorithmizationAndProgramming2102\bin\Debug\net6.0\AlgorithmizationAndProgramming2102.dll
+C:\Users\Max\Documents\Visual Studio 2022\Projects\AlgorithmizationAndProgramming2102\AlgorithmizationAndProgramming2102\bin\Debug\net6.0\AlgorithmizationAndProgramming2102.pdb
+C:\Users\Max\Documents\Visual Studio 2022\Projects\AlgorithmizationAndProgramming2102\AlgorithmizationAndProgramming2102\obj\Debug\net6.0\AlgorithmizationAndProgramming2102.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Max\Documents\Visual Studio 2022\Projects\AlgorithmizationAndProgramming2102\AlgorithmizationAndProgramming2102\obj\Debug\net6.0\AlgorithmizationAndProgramming2102.AssemblyInfoInputs.cache
+C:\Users\Max\Documents\Visual Studio 2022\Projects\AlgorithmizationAndProgramming2102\AlgorithmizationAndProgramming2102\obj\Debug\net6.0\AlgorithmizationAndProgramming2102.AssemblyInfo.cs
+C:\Users\Max\Documents\Visual Studio 2022\Projects\AlgorithmizationAndProgramming2102\AlgorithmizationAndProgramming2102\obj\Debug\net6.0\AlgorithmizationAndProgramming2102.csproj.CoreCompileInputs.cache
+C:\Users\Max\Documents\Visual Studio 2022\Projects\AlgorithmizationAndProgramming2102\AlgorithmizationAndProgramming2102\obj\Debug\net6.0\AlgorithmizationAndProgramming2102.dll
+C:\Users\Max\Documents\Visual Studio 2022\Projects\AlgorithmizationAndProgramming2102\AlgorithmizationAndProgramming2102\obj\Debug\net6.0\refint\AlgorithmizationAndProgramming2102.dll
+C:\Users\Max\Documents\Visual Studio 2022\Projects\AlgorithmizationAndProgramming2102\AlgorithmizationAndProgramming2102\obj\Debug\net6.0\AlgorithmizationAndProgramming2102.pdb
+C:\Users\Max\Documents\Visual Studio 2022\Projects\AlgorithmizationAndProgramming2102\AlgorithmizationAndProgramming2102\obj\Debug\net6.0\AlgorithmizationAndProgramming2102.genruntimeconfig.cache
+C:\Users\Max\Documents\Visual Studio 2022\Projects\AlgorithmizationAndProgramming2102\AlgorithmizationAndProgramming2102\obj\Debug\net6.0\ref\AlgorithmizationAndProgramming2102.dll
